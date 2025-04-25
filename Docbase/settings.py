@@ -119,8 +119,12 @@ WSGI_APPLICATION = 'Docbase.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'docbase1',
+        'USER': 'postgres',
+        'PASSWORD': 'FQ8ue817KMxqPFj8buTL',
+        'HOST': 'docbase1.cpqk6cw2wrwn.eu-north-1.rds.amazonaws.com',
+        'PORT': '5432',##the port number u set
     }
 }
 
@@ -244,19 +248,17 @@ STATIC_LOCATION = 'static'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
+AWS_ACCESS_KEY_ID = 'AKIAXZRBXLNEG67H2TNV'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'docbasebucket1'
+AWS_S3_REGION_NAME = 'eu-north-1'
+AWS_S3_FILE_OVERWRITE = False
+AWS_S3_VERIFY = True
+AWS_DEFAULT_ACL = None
+AWS_S3_SIGNATURE_NAME = 's3v4'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+STATICFILES_STORAGE = "storages.backends.s3.S3Storage"
 
 
-#AWS_ACCESS_KEY_ID = 'AKIAXZRBXLNEAD55FUFD'
-#AWS_SECRET_ACCESS_KEY = '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'
-#AWS_STORAGE_BUCKET_NAME = 'blogs3sourcecode'
-#AWS_S3_REGION_NAME = 'eu-north-1'
-#AWS_S3_FILE_OVERWRITE = False
-#AWS_S3_VERIFY = True
-#AWS_DEFAULT_ACL = None
-#AWS_S3_SIGNATURE_NAME = 's3v4'
-#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-#STATICFILES_STORAGE = "storages.backends.s3.S3Storage"
-
-
-#AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
